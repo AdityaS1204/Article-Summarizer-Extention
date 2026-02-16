@@ -1,14 +1,123 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>popup</title>
+    <style>
+        :root {
+            --primary: #000000;
+            --primary-hover: #202020;
+            --bg: #ffffff;
+            --text-main: #1e293b;
+            --text-muted: #64748b;
+            --border: #e2e8f0;
+            --input-bg: #f8fafc;
+            --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -1px rgb(0 0 0 / 0.06);
+        }
+
+        body {
+            min-width: 350px;
+            padding: 20px;
+            background-color: var(--bg);
+            color: var(--text-main);
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            margin: 0;
+        }
+
+        h1 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin: 0 0 16px 0;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .options {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 16px;
+        }
+
+        select {
+            flex: 1;
+            padding: 8px 12px;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            background-color: var(--input-bg);
+            color: var(--text-main);
+            font-size: 14px;
+            outline: none;
+            cursor: pointer;
+            transition: border-color 0.2s;
+        }
+
+        select:focus {
+            border-color: var(--primary);
+        }
+
+        button {
+            padding: 8px 16px;
+            border-radius: 8px;
+            border: none;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        #summarizeBtn {
+            background-color: var(--primary);
+            color: white;
+            box-shadow: var(--shadow);
+        }
+
+        #summarizeBtn:hover {
+            background-color: var(--primary-hover);
+            transform: translateY(-1px);
+        }
+
+        #copy-btn {
+            background-color: var(--input-bg);
+            color: var(--text-main);
+            border: 1px solid var(--border);
+        }
+
+        #copy-btn:hover {
+            background-color: var(--border);
+        }
+
+        #result {
+            padding: 16px;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            background-color: var(--input-bg);
+            min-height: 80px;
+            font-size: 14px;
+            line-height: 1.5;
+            color: var(--text-muted);
+        }
+    </style>
 </head>
+
 <body>
-    <h1>AI Article Summary</h1>
-    <button id="summarizeBtn">Summarize</button>
-    <div id="summary"></div>
+    <h1>AI Summary</h1>
+    <div class="options">
+        <select name="" id="summary-type">
+            <option value="Brief">Brief</option>
+            <option value="detailed">detailed</option>
+            <option value="bullet-points">bullet-points</option>
+        </select>
+        <button id="summarizeBtn">Summarize</button>
+        <button id="copy-btn">copy</button>
+    </div>
+
+    <div id="result">Select a type and click summarize</div>
+
     <script src="popup.js"></script>
 </body>
+
 </html>
